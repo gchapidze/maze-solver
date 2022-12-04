@@ -16,14 +16,14 @@ public class Algorithms {
     private static final boolean NOT_FOUND = true;
     private static boolean[][] visited;
 
-    public void choose(String algorithmName, Rectangle[][] matrix, Point fishPoint, String pinguImage) {
+    public void choose(String algorithmName, Rectangle[][] matrix, Point fishPoint, String dolphinImage) {
         switch (algorithmName) {
-            case "Path-Find" -> findPath(matrix, new Point(0, 0), fishPoint, pinguImage);
+            case "Path-Find" -> findPath(matrix, new Point(0, 0), fishPoint, dolphinImage);
         }
     }
 
-    private boolean findPath(Rectangle[][] matrix, Point start, Point end, String pinguImage) {
-        ImagePattern pingu = Image.build(pinguImage);
+    private boolean findPath(Rectangle[][] matrix, Point start, Point end, String dolphinImage) {
+        ImagePattern dolphin = Image.build(dolphinImage);
         int count = 0;
         visited = new boolean[matrix.length][matrix[0].length];
         visited[0][0] = true;
@@ -49,7 +49,7 @@ public class Algorithms {
                         continue;
                     }
                     if (moveX == end.X() && moveY == end.Y()) {
-                        matrix[end.Y()][end.X()].setFill(pingu);
+                        matrix[end.Y()][end.X()].setFill(dolphin);
                         matrix[start.Y()][start.X()].setFill(Color.GREEN);
                         System.out.println("I am not hungry anymore!");
                         return true;
@@ -67,7 +67,7 @@ public class Algorithms {
 //                    });
                     matrix[start.Y()][start.X()].setFill(Color.GREEN);
                     start = newPoint;
-                    matrix[start.Y()][start.X()].setFill(pingu);
+                    matrix[start.Y()][start.X()].setFill(dolphin);
                     mi = 0;
                     continue;
                 }

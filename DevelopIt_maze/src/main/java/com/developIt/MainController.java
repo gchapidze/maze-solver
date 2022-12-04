@@ -10,12 +10,11 @@ import javafx.scene.shape.Rectangle;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
-import java.util.stream.Stream;
 
 public class MainController implements Initializable {
     protected final static Timer timer = new Timer();
-    private final String pinguImage = "src/main/resources/com/developIt/pingu.png";
-    private final String fishImage = "src/main/resources/com/developIt/fish.png";
+    private final String dolphinImage = "DevelopIt_maze/src/main/resources/com/developIt/dolphin.jpeg";
+    private final String ballImage = "DevelopIt_maze/src/main/resources/com/developIt/ball.png";
     private final HashMap<Integer, String> algorithms;
     @FXML
     private Rectangle rectangle_0;
@@ -474,12 +473,12 @@ public class MainController implements Initializable {
     }
 
     private void addCharacterIcons() {
-        rectangle_0.setFill(Image.build(pinguImage));
+        rectangle_0.setFill(Image.build(dolphinImage));
 
         int randomX = new Random().nextInt(1, rectangleMatrix[0].length);
         int randomY = new Random().nextInt(1, rectangleMatrix.length);
 
-        rectangleMatrix[randomY][randomX].setFill(Image.build(fishImage));
+        rectangleMatrix[randomY][randomX].setFill(Image.build(ballImage));
         fishX = randomX;
         fishY = randomY;
     }
@@ -504,7 +503,7 @@ public class MainController implements Initializable {
         if (dialogButton.get() == ButtonType.OK) {
             if (algorithmName.equalsIgnoreCase(algorithmName)) {
                 Platform.runLater(() -> {
-                    new Algorithms().choose(algorithmName, rectangleMatrix, new Point(fishX, fishY), pinguImage);
+                    new Algorithms().choose(algorithmName, rectangleMatrix, new Point(fishX, fishY), dolphinImage);
                 });
             }
         }
